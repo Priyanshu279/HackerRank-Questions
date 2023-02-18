@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 int simpleArraySum(vector<int> arr){
     int sum = 0;
     int size = arr.size();
