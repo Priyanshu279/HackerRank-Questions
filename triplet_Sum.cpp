@@ -1,14 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 vector<int> compareTriplets(vector<int> a, vector<int> b) {
-    int alice = 0;
-    int bob = 0;
+    int Alice = 0;
+    int Bob = 0;
     
-    for(int i = 0; i<3;i++){
+    for(int i = 0; i<3; i++){
         if(a[i]>b[i]){
-            alice++;
+            Alice++;
         }else if(a[i]<b[i]){
-            bob++;
+            Bob++;
         }
     }
-    
-    return {alice,bob};
+    return {Alice,Bob};
 }
+
+
+int main(){
+    vector <int> a;
+    vector <int> b;
+    
+    for(int i = 0; i<3; i++){
+        int x;
+        cin >> x;
+        a.push_back(x);
+    }
+    
+     for(int i = 0; i<3; i++){
+        int x;
+        cin >> x;
+        b.push_back(x);
+    }
+    
+    vector<int> getAnswer = compareTriplets(a,b);
+    
+    for(int i = 0; i< getAnswer.size(); i++) {
+        cout << getAnswer[i] << " ";
+    }
+}
+
