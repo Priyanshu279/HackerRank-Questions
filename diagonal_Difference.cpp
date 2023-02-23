@@ -1,42 +1,32 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
+int diagonalDifference(vector<vector<int>> arr){
+    
+    int d1Sum = 0;
+    int d2Sum = 0;
+    int size = arr.size();
+
+    for(int i = 0; i<size; i++){
+       d1Sum = d1Sum+arr[i][i];
+       d2Sum = d2Sum+arr[i][size-1-i];
+    }
+    return abs(d1Sum-d2Sum);
+}
+
 int main(){
-  long long  int sum1=0,sum2=0;
-    int row,coloumn;
-    int i,n,j;
-    cin>>n;
-   int arr[n][n];
-  long long  int diff;
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-            cin>>arr[i][j];
+    
+    int n;
+    cin >> n;
+
+    vector<vector<int>> arr(n,vector<int>(n));
+
+    for(int i = 0; i<n; i++){
+        for(int j = 0; j<n; j++){
+            cin >> arr[i][j];
         }
     }
-      for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-           if(i==j)
-           {
-               sum1=sum1+arr[i][j];
-           }
-        }
-    }
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++)
-        {
-           if(i==n-j-1)
-           {
-               sum2=sum2+arr[i][j];
-           }
-        }
-
-
-    }    
-    diff=abs(sum1-sum2);
-    cout<<diff;
+    
+    int result = diagonalDifference(arr);
+    cout << result;
 }
